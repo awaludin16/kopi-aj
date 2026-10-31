@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "remixicon/fonts/remixicon.css";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-apache-50: #f9f6ed;
+    --color-apache-100: #f1ead0;
+    --color-apache-200: #e5d4a3;
+    --color-apache-300: #d4b365;
+    --color-apache-400: #c99d46;
+    --color-apache-500: #ba8838;
+    --color-apache-600: #a06b2e;
+    --color-apache-700: #805028;
+    --color-apache-800: #6c4227;
+    --color-apache-900: #5d3826;
+    --color-apache-950: #351d13;
+
+    --color-primary-50: #fef9ec;
+    --color-primary-100: #fbefca;
+    --color-primary-200: #f7e098;
+    --color-primary-300: #f2c757;
+    --color-primary-400: #efb230;
+    --color-primary-500: #e89218;
+    --color-primary-600: #cd6e12;
+    --color-primary-700: #aa4e13;
+    --color-primary-800: #8a3d16;
+    --color-primary-900: #723315;
+    --color-primary-950: #411907;
+
+    --text-75xl: 5rem;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.notification-tab > .active {
+    @apply text-blue-500 border-b-blue-500 hover:text-blue-500;
+}
+.order-tab > .active {
+    @apply bg-blue-500 text-white hover:text-white;
+}
+.main.active {
+    @apply md:w-full md:ml-0;
+}
+
+.navbar-scrolled {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
