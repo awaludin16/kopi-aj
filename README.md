@@ -20,7 +20,7 @@ Pelanggan scan QR meja, pilih menu, bayar online atau tunai, lalu kasir mengonfi
 ---
 
 <p align="center">
-  <img src="docs/screenshots/07-admin-dashboard.png" alt="Dashboard Kopi AJ" width="100%">
+  <img src="docs/screenshots/kopiaj.png" alt="Dashboard Kopi AJ" width="100%">
 </p>
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Pelanggan scan QR meja, pilih menu, bayar online atau tunai, lalu kasir mengonfi
 
 ## 📖 Tentang Proyek
 
-**Kopi AJ** adalah aplikasi pemesanan mandiri (*self-order*) berbasis web untuk kafe, restoran, atau kedai kopi. Setiap meja memiliki QR code sendiri. Pelanggan cukup memindai QR, memilih menu, mengatur jumlah pesanan, lalu membayar secara online melalui **Xendit** atau tunai di kasir.
+**Kopi AJ** adalah aplikasi pemesanan mandiri (_self-order_) berbasis web untuk kafe, restoran, atau kedai kopi. Setiap meja memiliki QR code sendiri. Pelanggan cukup memindai QR, memilih menu, mengatur jumlah pesanan, lalu membayar secara online melalui **Xendit** atau tunai di kasir.
 
 Di sisi belakang, kasir mendapatkan notifikasi pesanan baru, memverifikasi pembayaran dengan memindai QR pelanggan, mencetak struk, dan memantau performa penjualan melalui dashboard analitik.
 
@@ -42,37 +42,37 @@ Aplikasi dibuat dengan **Laravel 12**, **Tailwind CSS 4**, dan **Alpine.js**, se
 
 ### 📱 Pengalaman Pelanggan
 
-| Fitur | Deskripsi |
-| --- | --- |
-| **Scan QR per meja** | Setiap meja punya QR unik. Scan akan membuat sesi meja baru, menonaktifkan sesi lama, dan mereset keranjang agar tidak tercampur antar pelanggan. |
-| **Katalog menu interaktif** | Menu dikelompokkan per kategori, dilengkapi pencarian, gambar, harga, deskripsi, dan hanya menampilkan menu yang stoknya tersedia. |
-| **Keranjang realtime** | Tambah, kurangi, dan hapus item tanpa reload. Badge jumlah item, subtotal, dan total langsung diperbarui melalui AJAX. |
-| **Catatan pesanan** | Pelanggan bisa menambahkan catatan khusus, misalnya tingkat kepedasan atau permintaan tanpa bahan tertentu. |
-| **Rincian pembayaran otomatis** | Subtotal, PB1 10%, biaya lain, dan pembulatan ke kelipatan Rp500 dihitung otomatis. |
-| **Pembayaran online** | Integrasi **Xendit Invoice** untuk QRIS, e-wallet, virtual account, dan channel pembayaran lain. |
-| **Pembayaran tunai** | Pelanggan mendapatkan QR unik untuk ditunjukkan dan dipindai oleh kasir. |
-| **Status pembayaran near real-time** | Halaman status melakukan polling untuk pembayaran cash dan sinkronisasi status invoice Xendit saat halaman dibuka. |
-| **Ringkasan pesanan** | Halaman status pesanan menampilkan item, total, metode pembayaran, dan status akhir. |
-| **Profil meja** | Menampilkan informasi meja dan sesi yang sedang aktif. |
+| Fitur                                | Deskripsi                                                                                                                                         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Scan QR per meja**                 | Setiap meja punya QR unik. Scan akan membuat sesi meja baru, menonaktifkan sesi lama, dan mereset keranjang agar tidak tercampur antar pelanggan. |
+| **Katalog menu interaktif**          | Menu dikelompokkan per kategori, dilengkapi pencarian, gambar, harga, deskripsi, dan hanya menampilkan menu yang stoknya tersedia.                |
+| **Keranjang realtime**               | Tambah, kurangi, dan hapus item tanpa reload. Badge jumlah item, subtotal, dan total langsung diperbarui melalui AJAX.                            |
+| **Catatan pesanan**                  | Pelanggan bisa menambahkan catatan khusus, misalnya tingkat kepedasan atau permintaan tanpa bahan tertentu.                                       |
+| **Rincian pembayaran otomatis**      | Subtotal, PB1 10%, biaya lain, dan pembulatan ke kelipatan Rp500 dihitung otomatis.                                                               |
+| **Pembayaran online**                | Integrasi **Xendit Invoice** untuk QRIS, e-wallet, virtual account, dan channel pembayaran lain.                                                  |
+| **Pembayaran tunai**                 | Pelanggan mendapatkan QR unik untuk ditunjukkan dan dipindai oleh kasir.                                                                          |
+| **Status pembayaran near real-time** | Halaman status melakukan polling untuk pembayaran cash dan sinkronisasi status invoice Xendit saat halaman dibuka.                                |
+| **Ringkasan pesanan**                | Halaman status pesanan menampilkan item, total, metode pembayaran, dan status akhir.                                                              |
+| **Profil meja**                      | Menampilkan informasi meja dan sesi yang sedang aktif.                                                                                            |
 
 ### 🧑‍💼 Panel Admin & Kasir
 
-| Fitur | Deskripsi |
-| --- | --- |
-| **Login berbasis role** | Mendukung role `admin`, `cashier`, dan `customer` dengan middleware role. |
-| **Dashboard analitik** | Filter periode (hari ini, kemarin, minggu ini, bulan ini, tahun ini, custom), kartu pendapatan, total pesanan, pesanan menunggu, dan jumlah menu. |
-| **Grafik penjualan** | Tren pendapatan dan jumlah pesanan menggunakan **Chart.js**, plus donut chart distribusi metode pembayaran. |
-| **Menu terlaris** | Top 5 menu berdasarkan kuantitas terjual dan kontribusi pendapatan pada periode terpilih. |
-| **Pesanan terkini** | Daftar pesanan terbaru beserta meja, total, metode, dan waktu. |
-| **Notifikasi pesanan** | Polling endpoint untuk badge lonceng, dropdown preview, toast, dan suara notifikasi sintetis saat ada pesanan baru. |
-| **Pesanan masuk** | Daftar pesanan berstatus `submitted` dengan pembayaran `pending`, siap dikonfirmasi kasir. |
-| **Daftar pesanan** | Riwayat pesanan `submitted` dan `paid` dalam satu tabel. |
-| **Scan QR pembayaran** | Memindai QR pelanggan dengan kamera menggunakan `html5-qrcode`, atau memasukkan token secara manual. |
-| **Konfirmasi pembayaran** | Mengubah status payment menjadi `paid` dan order menjadi `paid` dalam satu transaksi database. |
-| **Struk pembayaran** | Halaman struk siap cetak dengan rincian item, pajak, pembulatan, dan total. |
-| **Kelola menu** | CRUD menu, pencarian, filter kategori, harga, stok, deskripsi, dan upload gambar ke storage. |
-| **Daftar kategori** | Halaman kategori untuk melihat dan mengelola pengelompokan menu. |
-| **Dark mode** | Tampilan admin mendukung mode terang dan gelap. |
+| Fitur                     | Deskripsi                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Login berbasis role**   | Mendukung role `admin`, `cashier`, dan `customer` dengan middleware role.                                                                         |
+| **Dashboard analitik**    | Filter periode (hari ini, kemarin, minggu ini, bulan ini, tahun ini, custom), kartu pendapatan, total pesanan, pesanan menunggu, dan jumlah menu. |
+| **Grafik penjualan**      | Tren pendapatan dan jumlah pesanan menggunakan **Chart.js**, plus donut chart distribusi metode pembayaran.                                       |
+| **Menu terlaris**         | Top 5 menu berdasarkan kuantitas terjual dan kontribusi pendapatan pada periode terpilih.                                                         |
+| **Pesanan terkini**       | Daftar pesanan terbaru beserta meja, total, metode, dan waktu.                                                                                    |
+| **Notifikasi pesanan**    | Polling endpoint untuk badge lonceng, dropdown preview, toast, dan suara notifikasi sintetis saat ada pesanan baru.                               |
+| **Pesanan masuk**         | Daftar pesanan berstatus `submitted` dengan pembayaran `pending`, siap dikonfirmasi kasir.                                                        |
+| **Daftar pesanan**        | Riwayat pesanan `submitted` dan `paid` dalam satu tabel.                                                                                          |
+| **Scan QR pembayaran**    | Memindai QR pelanggan dengan kamera menggunakan `html5-qrcode`, atau memasukkan token secara manual.                                              |
+| **Konfirmasi pembayaran** | Mengubah status payment menjadi `paid` dan order menjadi `paid` dalam satu transaksi database.                                                    |
+| **Struk pembayaran**      | Halaman struk siap cetak dengan rincian item, pajak, pembulatan, dan total.                                                                       |
+| **Kelola menu**           | CRUD menu, pencarian, filter kategori, harga, stok, deskripsi, dan upload gambar ke storage.                                                      |
+| **Daftar kategori**       | Halaman kategori untuk melihat dan mengelola pengelompokan menu.                                                                                  |
+| **Dark mode**             | Tampilan admin mendukung mode terang dan gelap.                                                                                                   |
 
 ### 🔌 Integrasi & Fitur Teknis
 
@@ -92,48 +92,48 @@ Aplikasi dibuat dengan **Laravel 12**, **Tailwind CSS 4**, dan **Alpine.js**, se
 
 ### Backend
 
-| Teknologi | Kegunaan |
-| --- | --- |
-| **PHP 8.2+** | Bahasa pemrograman utama. |
-| **Laravel 12** | Framework aplikasi, routing, Eloquent ORM, validasi, session, queue, dan Blade. |
-| **MySQL / MariaDB** | Database utama. |
-| **Laravel HTTP Client** | Komunikasi dengan API Xendit dan Fonnte. |
-| **Laravel Queue & Scheduler** | Antrean job dan tugas terjadwal (siap dikembangkan). |
+| Teknologi                     | Kegunaan                                                                        |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| **PHP 8.2+**                  | Bahasa pemrograman utama.                                                       |
+| **Laravel 12**                | Framework aplikasi, routing, Eloquent ORM, validasi, session, queue, dan Blade. |
+| **MySQL / MariaDB**           | Database utama.                                                                 |
+| **Laravel HTTP Client**       | Komunikasi dengan API Xendit dan Fonnte.                                        |
+| **Laravel Queue & Scheduler** | Antrean job dan tugas terjadwal (siap dikembangkan).                            |
 
 ### Frontend
 
-| Teknologi | Kegunaan |
-| --- | --- |
-| **Blade** | Template engine server-side. |
-| **Tailwind CSS 4** | Styling responsif dan utility-first. |
-| **Alpine.js 3** | Interaksi ringan di sisi klien (dropdown, accordion, modal). |
-| **Vite 7** | Build tool dan dev server dengan hot reload. |
-| **Remixicon** | Ikon antarmuka. |
-| **Chart.js** | Grafik dashboard. |
-| **html5-qrcode** | Pemindaian QR melalui kamera browser. |
-| **Material Dashboard** | Aset tampilan halaman login admin. |
+| Teknologi              | Kegunaan                                                     |
+| ---------------------- | ------------------------------------------------------------ |
+| **Blade**              | Template engine server-side.                                 |
+| **Tailwind CSS 4**     | Styling responsif dan utility-first.                         |
+| **Alpine.js 3**        | Interaksi ringan di sisi klien (dropdown, accordion, modal). |
+| **Vite 7**             | Build tool dan dev server dengan hot reload.                 |
+| **Remixicon**          | Ikon antarmuka.                                              |
+| **Chart.js**           | Grafik dashboard.                                            |
+| **html5-qrcode**       | Pemindaian QR melalui kamera browser.                        |
+| **Material Dashboard** | Aset tampilan halaman login admin.                           |
 
 ### Integrasi & Layanan
 
-| Layanan | Kegunaan |
-| --- | --- |
-| **Xendit** | Payment gateway untuk pembayaran online (QRIS, e-wallet, VA, dan lainnya). |
-| **Simple QrCode** | Pembuatan QR code pembayaran cash. |
-| **Fonnte** | Integrasi WhatsApp opsional untuk notifikasi. |
+| Layanan           | Kegunaan                                                                   |
+| ----------------- | -------------------------------------------------------------------------- |
+| **Xendit**        | Payment gateway untuk pembayaran online (QRIS, e-wallet, VA, dan lainnya). |
+| **Simple QrCode** | Pembuatan QR code pembayaran cash.                                         |
+| **Fonnte**        | Integrasi WhatsApp opsional untuk notifikasi.                              |
 
 ### Alat Pengembangan
 
-| Alat | Kegunaan |
-| --- | --- |
-| **Composer** | Manajemen dependency PHP. |
-| **npm** | Manajemen dependency frontend. |
-| **Laravel Pint** | Formatter kode PHP. |
-| **PHPUnit** | Testing. |
-| **Laravel Pail** | Melihat log aplikasi secara real-time. |
-| **Laravel Sail** | Environment pengembangan berbasis Docker (opsional). |
-| **Git & GitHub** | Version control dan kolaborasi. |
-| **Laragon / XAMPP** | Web server lokal untuk Windows. |
-| **ngrok** | Tunnel publik untuk menguji webhook Xendit di lokal. |
+| Alat                | Kegunaan                                             |
+| ------------------- | ---------------------------------------------------- |
+| **Composer**        | Manajemen dependency PHP.                            |
+| **npm**             | Manajemen dependency frontend.                       |
+| **Laravel Pint**    | Formatter kode PHP.                                  |
+| **PHPUnit**         | Testing.                                             |
+| **Laravel Pail**    | Melihat log aplikasi secara real-time.               |
+| **Laravel Sail**    | Environment pengembangan berbasis Docker (opsional). |
+| **Git & GitHub**    | Version control dan kolaborasi.                      |
+| **Laragon / XAMPP** | Web server lokal untuk Windows.                      |
+| **ngrok**           | Tunnel publik untuk menguji webhook Xendit di lokal. |
 
 ---
 
@@ -147,31 +147,31 @@ Aplikasi dibuat dengan **Laravel 12**, **Tailwind CSS 4**, dan **Alpine.js**, se
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="docs/screenshots/07-admin-dashboard.png" alt="Dashboard analitik" width="100%">
+      <img src="docs/screenshots/dashborad.png" alt="Dashboard analitik" width="100%">
       <br><sub><b>Dashboard analitik</b><br>Pendapatan, tren penjualan, menu terlaris, dan pesanan terkini.</sub>
     </td>
     <td width="50%" align="center">
-      <img src="docs/screenshots/08-admin-orders.png" alt="Pesanan masuk" width="100%">
+      <img src="docs/screenshots/pesanan-masuk.png" alt="Pesanan masuk" width="100%">
       <br><sub><b>Pesanan masuk</b><br>Pesanan yang menunggu konfirmasi pembayaran.</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="docs/screenshots/09-admin-order-detail.png" alt="Detail pesanan" width="100%">
+      <img src="docs/screenshots/detail-pesanan.png" alt="Detail pesanan" width="100%">
       <br><sub><b>Detail & konfirmasi</b><br>Rincian item dan aksi konfirmasi oleh kasir.</sub>
     </td>
     <td width="50%" align="center">
-      <img src="docs/screenshots/10-admin-scan-qr.png" alt="Scan QR" width="100%">
+      <img src="docs/screenshots/scan-qr-pesanan.png" alt="Scan QR" width="100%">
       <br><sub><b>Scan QR pembayaran</b><br>Verifikasi pembayaran pelanggan lewat kamera.</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="docs/screenshots/11-admin-menus.png" alt="Kelola menu" width="100%">
+      <img src="docs/screenshots/kelola-menu.png" alt="Kelola menu" width="100%">
       <br><sub><b>Kelola menu</b><br>CRUD menu, harga, stok, dan gambar.</sub>
     </td>
     <td width="50%" align="center">
-      <img src="docs/screenshots/12-admin-receipt.png" alt="Struk pembayaran" width="100%">
+      <img src="docs/screenshots/cetak-struk.png" alt="Struk pembayaran" width="100%">
       <br><sub><b>Struk pembayaran</b><br>Struk siap cetak dengan rincian lengkap.</sub>
     </td>
   </tr>
@@ -180,24 +180,18 @@ Aplikasi dibuat dengan **Laravel 12**, **Tailwind CSS 4**, dan **Alpine.js**, se
 ### 📱 Tampilan Pelanggan
 
 <p align="center">
-  <img src="docs/screenshots/01-customer-menu.png" alt="Menu pelanggan" width="18%">
-  <img src="docs/screenshots/02-customer-cart.png" alt="Keranjang" width="18%">
-  <img src="docs/screenshots/03-customer-payment.png" alt="Metode pembayaran" width="18%">
-  <img src="docs/screenshots/04-customer-cash-qr.png" alt="QR cash" width="18%">
-  <img src="docs/screenshots/05-customer-order-status.png" alt="Status pesanan" width="18%">
+  <img src="docs/screenshots/menu-screen.png" alt="Menu pelanggan" width="18%">
+  <img src="docs/screenshots/order-screen.png" alt="Keranjang" width="18%">
+  <img src="docs/screenshots/payment-screen.png" alt="Metode pembayaran" width="18%">
+  <img src="docs/screenshots/qr-cash-screen.png" alt="QR cash" width="18%">
+  <img src="docs/screenshots/detail-pesanan-screen.png" alt="Status pesanan" width="18%">
 </p>
 
 <p align="center">
   <sub><b>Menu</b> · <b>Keranjang</b> · <b>Pembayaran</b> · <b>QR Cash</b> · <b>Status Pesanan</b></sub>
 </p>
 
-<p><b>Referensi UIUX: </b><a href="https://www.esb.id/id/solusi/produk/order"/>esb.id</p>
-
-### 🔐 Halaman Login
-
-<p align="center">
-  <img src="docs/screenshots/06-admin-login.png" alt="Login admin" width="80%">
-</p>
+<p><b>Referensi UIUX: </b><a href="https://www.esb.id/id/solusi/produk/order">esb.id</p>
 
 ---
 
@@ -233,17 +227,17 @@ flowchart LR
 
 ### 🗄️ Tabel Database Utama
 
-| Tabel | Fungsi |
-| --- | --- |
-| `users` | Pengguna dengan role `admin`, `cashier`, atau `customer`. |
-| `tables` | Data meja, nomor meja, token QR, dan status aktif. |
-| `table_sessions` | Sesi pelanggan per meja; hanya satu sesi aktif per meja. |
-| `categories` | Kategori menu. |
-| `menus` | Menu, harga, stok, deskripsi, dan gambar. |
-| `orders` | Pesanan, nomor order, subtotal, PB1, service charge, pembulatan, total, dan status. |
-| `order_items` | Detail item pesanan beserta harga saat transaksi. |
-| `payments` | Pembayaran, metode, provider, referensi Xendit, QR token, status, dan payload. |
-| `sessions`, `cache`, `jobs` | Tabel bawaan Laravel untuk session, cache, dan queue. |
+| Tabel                       | Fungsi                                                                              |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| `users`                     | Pengguna dengan role `admin`, `cashier`, atau `customer`.                           |
+| `tables`                    | Data meja, nomor meja, token QR, dan status aktif.                                  |
+| `table_sessions`            | Sesi pelanggan per meja; hanya satu sesi aktif per meja.                            |
+| `categories`                | Kategori menu.                                                                      |
+| `menus`                     | Menu, harga, stok, deskripsi, dan gambar.                                           |
+| `orders`                    | Pesanan, nomor order, subtotal, PB1, service charge, pembulatan, total, dan status. |
+| `order_items`               | Detail item pesanan beserta harga saat transaksi.                                   |
+| `payments`                  | Pembayaran, metode, provider, referensi Xendit, QR token, status, dan payload.      |
+| `sessions`, `cache`, `jobs` | Tabel bawaan Laravel untuk session, cache, dan queue.                               |
 
 ---
 
@@ -379,9 +373,9 @@ Script `composer run setup` menjalankan `composer install`, menyalin `.env`, gen
 
 Setelah `php artisan migrate --seed`, gunakan akun berikut:
 
-| Role | Email | Password |
-| --- | --- | --- |
-| Admin | `admin@example.com` | `password` |
+| Role  | Email                 | Password   |
+| ----- | --------------------- | ---------- |
+| Admin | `admin@example.com`   | `password` |
 | Kasir | `cashier@example.com` | `password` |
 
 > [!IMPORTANT]
@@ -391,22 +385,22 @@ Setelah `php artisan migrate --seed`, gunakan akun berikut:
 
 ## ⚙️ Konfigurasi Environment
 
-| Variabel | Keterangan | Contoh |
-| --- | --- | --- |
-| `APP_NAME` | Nama aplikasi. | `"Kopi AJ"` |
-| `APP_URL` | URL utama aplikasi. | `http://localhost:8000` |
-| `APP_TIMEZONE` | Zona waktu aplikasi. | `Asia/Jakarta` |
-| `APP_LOCALE` | Bahasa aplikasi. | `id` |
-| `DB_CONNECTION` | Driver database. | `mysql` |
-| `DB_DATABASE` | Nama database. | `kopi_aj` |
-| `DB_USERNAME` | Username database. | `root` |
-| `DB_PASSWORD` | Password database. | *(kosong)* |
-| `SESSION_DRIVER` | Driver session. | `database` |
-| `QUEUE_CONNECTION` | Driver queue. | `database` |
-| `XENDIT_SECRET_KEY` | Secret key API Xendit. | `xnd_development_...` |
-| `XENDIT_CALLBACK_TOKEN` | Token verifikasi webhook Xendit. | `random-token` |
-| `XENDIT_BASE_URL` | Base URL API Xendit. | `https://api.xendit.co` |
-| `FONNTE_TOKEN` | Token API Fonnte (opsional). | `xxxxx` |
+| Variabel                | Keterangan                       | Contoh                  |
+| ----------------------- | -------------------------------- | ----------------------- |
+| `APP_NAME`              | Nama aplikasi.                   | `"Kopi AJ"`             |
+| `APP_URL`               | URL utama aplikasi.              | `http://localhost:8000` |
+| `APP_TIMEZONE`          | Zona waktu aplikasi.             | `Asia/Jakarta`          |
+| `APP_LOCALE`            | Bahasa aplikasi.                 | `id`                    |
+| `DB_CONNECTION`         | Driver database.                 | `mysql`                 |
+| `DB_DATABASE`           | Nama database.                   | `kopi_aj`               |
+| `DB_USERNAME`           | Username database.               | `root`                  |
+| `DB_PASSWORD`           | Password database.               | _(kosong)_              |
+| `SESSION_DRIVER`        | Driver session.                  | `database`              |
+| `QUEUE_CONNECTION`      | Driver queue.                    | `database`              |
+| `XENDIT_SECRET_KEY`     | Secret key API Xendit.           | `xnd_development_...`   |
+| `XENDIT_CALLBACK_TOKEN` | Token verifikasi webhook Xendit. | `random-token`          |
+| `XENDIT_BASE_URL`       | Base URL API Xendit.             | `https://api.xendit.co` |
+| `FONNTE_TOKEN`          | Token API Fonnte (opsional).     | `xxxxx`                 |
 
 ### 💳 Konfigurasi Xendit
 
@@ -415,21 +409,21 @@ Setelah `php artisan migrate --seed`, gunakan akun berikut:
 3. Tentukan **Callback Token** dan isi `XENDIT_CALLBACK_TOKEN`.
 4. Daftarkan webhook URL:
 
-   ```text
-   https://domain-kamu.com/api/webhooks/xendit
-   ```
+    ```text
+    https://domain-kamu.com/api/webhooks/xendit
+    ```
 
 5. Untuk pengujian lokal, buat tunnel dengan ngrok:
 
-   ```bash
-   ngrok http 8000
-   ```
+    ```bash
+    ngrok http 8000
+    ```
 
-   Lalu gunakan URL ngrok sebagai basis webhook:
+    Lalu gunakan URL ngrok sebagai basis webhook:
 
-   ```text
-   https://xxxx.ngrok-free.app/api/webhooks/xendit
-   ```
+    ```text
+    https://xxxx.ngrok-free.app/api/webhooks/xendit
+    ```
 
 6. Pastikan metode HTTP webhook adalah **POST** dan header `x-callback-token` sesuai dengan nilai di `.env`.
 
@@ -439,21 +433,21 @@ Setelah `php artisan migrate --seed`, gunakan akun berikut:
 
 ## 🧭 Route Penting
 
-| Method | Route | Keterangan |
-| --- | --- | --- |
-| `GET` | `/` | Redirect ke meja aktif secara acak. |
-| `GET` | `/scan/{table_number}` | Entry point pelanggan setelah scan QR meja. |
-| `GET` | `/menu` | Katalog menu pelanggan. |
-| `GET` | `/order` | Keranjang dan checkout. |
-| `GET` | `/payment` | Halaman pemilihan metode pembayaran. |
-| `GET` | `/payment/cash/{qrToken}` | QR pembayaran cash. |
-| `GET` | `/order/summary` | Status dan ringkasan pesanan. |
-| `GET` | `/admin/auth` | Halaman login admin/kasir. |
-| `GET` | `/admin/dashboard` | Dashboard analitik. |
-| `GET` | `/admin/orders` | Pesanan masuk. |
-| `GET` | `/admin/scan` | Scan QR pembayaran. |
-| `GET` | `/admin/menus` | Kelola menu. |
-| `POST` | `/api/webhooks/xendit` | Webhook pembayaran Xendit. |
+| Method | Route                     | Keterangan                                  |
+| ------ | ------------------------- | ------------------------------------------- |
+| `GET`  | `/`                       | Redirect ke meja aktif secara acak.         |
+| `GET`  | `/scan/{table_number}`    | Entry point pelanggan setelah scan QR meja. |
+| `GET`  | `/menu`                   | Katalog menu pelanggan.                     |
+| `GET`  | `/order`                  | Keranjang dan checkout.                     |
+| `GET`  | `/payment`                | Halaman pemilihan metode pembayaran.        |
+| `GET`  | `/payment/cash/{qrToken}` | QR pembayaran cash.                         |
+| `GET`  | `/order/summary`          | Status dan ringkasan pesanan.               |
+| `GET`  | `/admin/auth`             | Halaman login admin/kasir.                  |
+| `GET`  | `/admin/dashboard`        | Dashboard analitik.                         |
+| `GET`  | `/admin/orders`           | Pesanan masuk.                              |
+| `GET`  | `/admin/scan`             | Scan QR pembayaran.                         |
+| `GET`  | `/admin/menus`            | Kelola menu.                                |
+| `POST` | `/api/webhooks/xendit`    | Webhook pembayaran Xendit.                  |
 
 ---
 
@@ -503,19 +497,19 @@ kopi-aj/
 
 ## 🛠️ Perintah Berguna
 
-| Perintah | Fungsi |
-| --- | --- |
-| `php artisan serve` | Menjalankan server lokal. |
-| `npm run dev` | Menjalankan Vite dengan hot reload. |
-| `npm run build` | Build aset untuk produksi. |
-| `php artisan migrate` | Menjalankan migrasi. |
+| Perintah                           | Fungsi                                    |
+| ---------------------------------- | ----------------------------------------- |
+| `php artisan serve`                | Menjalankan server lokal.                 |
+| `npm run dev`                      | Menjalankan Vite dengan hot reload.       |
+| `npm run build`                    | Build aset untuk produksi.                |
+| `php artisan migrate`              | Menjalankan migrasi.                      |
 | `php artisan migrate:fresh --seed` | Reset database dan isi ulang data contoh. |
-| `php artisan db:seed` | Menjalankan seeder. |
-| `php artisan storage:link` | Membuat symlink storage. |
-| `php artisan queue:work` | Menjalankan worker queue. |
-| `php artisan pail` | Melihat log secara real-time. |
-| `php artisan test` | Menjalankan test. |
-| `./vendor/bin/pint` | Merapikan format kode PHP. |
+| `php artisan db:seed`              | Menjalankan seeder.                       |
+| `php artisan storage:link`         | Membuat symlink storage.                  |
+| `php artisan queue:work`           | Menjalankan worker queue.                 |
+| `php artisan pail`                 | Melihat log secara real-time.             |
+| `php artisan test`                 | Menjalankan test.                         |
+| `./vendor/bin/pint`                | Merapikan format kode PHP.                |
 
 ---
 
@@ -563,21 +557,21 @@ Kontribusi sangat terbuka! Langkahnya:
 1. Fork repository ini.
 2. Buat branch fitur:
 
-   ```bash
-   git checkout -b feat/nama-fitur
-   ```
+    ```bash
+    git checkout -b feat/nama-fitur
+    ```
 
 3. Commit perubahan dengan pesan yang jelas:
 
-   ```bash
-   git commit -m "feat: tambah fitur ..."
-   ```
+    ```bash
+    git commit -m "feat: tambah fitur ..."
+    ```
 
 4. Push ke branch kamu:
 
-   ```bash
-   git push origin feat/nama-fitur
-   ```
+    ```bash
+    git push origin feat/nama-fitur
+    ```
 
 5. Buat **Pull Request** dan jelaskan perubahan yang dilakukan.
 
