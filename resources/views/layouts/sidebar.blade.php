@@ -3,7 +3,7 @@
     <a href="#" class="flex items-center pl-4 pb-4 border-b border-b-gray-200 dark:border-b-gray-900">
         <img src="{{ asset('assets/img/illustrations/logo.png') }}" alt="Logo"
             class="object-cover bg-gray-50 w-8 h-8 rounded">
-        <span class="ml-3 text-lg font-semibold text-gray-800 dark:text-white">Kedai Uniko</span>
+        <span class="ml-3 text-lg font-semibold text-gray-800 dark:text-white">Kopi AJ</span>
     </a>
 
     <ul class="mt-3">
@@ -55,7 +55,8 @@
                         <a href="{{ route('admin.orders.index') }}"
                             class="flex items-center text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white before:w-1 before:h-1 before:rounded-full before:bg-gray-400 dark:before:bg-gray-300 before:mr-3">
                             <span>Pesanan Masuk</span>
-                            <span id="sidebar-pending-badge" class="ml-auto hidden px-2 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded-full animate-pulse">0</span>
+                            <span id="sidebar-pending-badge"
+                                class="ml-auto hidden px-2 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded-full animate-pulse">0</span>
                         </a>
                     </li>
                     <li class="mb-4">
