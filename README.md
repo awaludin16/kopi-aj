@@ -191,6 +191,8 @@ Aplikasi dibuat dengan **Laravel 12**, **Tailwind CSS 4**, dan **Alpine.js**, se
   <sub><b>Menu</b> · <b>Keranjang</b> · <b>Pembayaran</b> · <b>QR Cash</b> · <b>Status Pesanan</b></sub>
 </p>
 
+<p><b>Referensi UIUX: </b><a href="https://www.esb.id/id/solusi/produk/order"/></p>
+
 ### 🔐 Halaman Login
 
 <p align="center">
